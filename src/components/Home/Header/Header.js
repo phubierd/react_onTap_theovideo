@@ -21,6 +21,12 @@ export default function Header() {
                     <li className="nav-item">
                         <NavLink activeClassName="activeNavItem" activeStyle={{fontWeight:'bold'}} className="nav-link" to="/login">Login</NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink activeClassName="activeNavItem" activeStyle={{fontWeight:'bold'}} className="nav-link" to="/detail">Detail</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink activeClassName="activeNavItem" activeStyle={{fontWeight:'bold'}} className="nav-link" to="/profile">Profile</NavLink>
+                    </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                         <div className="dropdown-menu" aria-labelledby="dropdownId">
