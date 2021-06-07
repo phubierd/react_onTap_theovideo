@@ -10,23 +10,27 @@ import Login from './pages/Login/Login';
 import Detail from './pages/Detail/Detail';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Profile from './pages/Profile/Profile';
+import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 
 function App() {
   return (
     <div className="App">
       {/* <DemoJSS/> */}
       <BrowserRouter>
-      <Header/>
+      {/* <Header/> */}
         <Switch>
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/contact' component={Contact} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/detail/:id' component={Detail} />
-          <Route exact path='/profile' component={Profile} />
+          <HomeTemplate path="/home" component={Home}/>
+          <HomeTemplate path="/contact" component={Contact}/>
+          <HomeTemplate path="/about" component={About}/>
+          <HomeTemplate path="/login" component={Login}/>
+          <HomeTemplate path="/detail/:id" component={Detail}/>
+          <HomeTemplate path="/profile" component={Profile}/>
+        
+          {/* <Route exact path='/detail/:id' component={Detail} />
+          <Route exact path='/profile' component={Profile} /> */}
 
-          <Route exact path='/' component={Home} />
-          <Route path="*" component={PageNotFound}/>
+          <HomeTemplate  path='/' component={Home} />
+          <HomeTemplate path="*" component={PageNotFound}/>
         </Switch>
       </BrowserRouter>
     </div>
