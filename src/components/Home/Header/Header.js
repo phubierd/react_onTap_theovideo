@@ -28,11 +28,16 @@ export default function Header() {
                         <NavLink activeClassName="activeNavItem" activeStyle={{fontWeight:'bold'}} className="nav-link" to="/profile">Profile</NavLink>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DemoHooks</a>
                         <div className="dropdown-menu" aria-labelledby="dropdownId">
-                            <a className="dropdown-item" href="#">Action 1</a>
-                            <a className="dropdown-item" href="#">Action 2</a>
+                            <NavLink className="dropdown-item" to="/demouseeffect">Demo UseEffect</NavLink>
+                            <NavLink className="dropdown-item" to="/demousecallback">Demo UseCallBack</NavLink>
+                            <NavLink className="dropdown-item" to="/demousememo">Demo UseMemo</NavLink>
+                            <NavLink className="dropdown-item" to="/demouseref">Demo useRef</NavLink>
+                            <NavLink className="dropdown-item" to="/demousereducer">Demo UseReducer</NavLink>
+                           
                         </div>
+                       
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
