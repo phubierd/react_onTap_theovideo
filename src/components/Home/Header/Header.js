@@ -35,6 +35,8 @@ export default function Header() {
                             <NavLink className="dropdown-item" to="/demousememo">Demo UseMemo</NavLink>
                             <NavLink className="dropdown-item" to="/demouseref">Demo useRef</NavLink>
                             <NavLink className="dropdown-item" to="/demousereducer">Demo UseReducer</NavLink>
+                            <NavLink className="dropdown-item" to="/demousecontext">Demo UseContext</NavLink>
+                            <NavLink className="dropdown-item" to="/demoredux">Demo Redux</NavLink>
                            
                         </div>
                        

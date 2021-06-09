@@ -16,6 +16,9 @@ import DemoUseCallBack from './DemoHookVideo/DemoUseCallBack';
 import DemoUseMemo from './DemoHookVideo/DemoUseMemo';
 import DemoUseRef from './DemoHookVideo/DemoUseRef';
 import DemoUseReducer from './DemoHookVideo/DemoUseReducer';
+import DemoUseContext from './DemoHookVideo/DemoUseContext';
+import ContextProvider from './DemoHookVideo/Context/ContextProvider';
+import DemoUseRedux from './DemoHookVideo/DemoUseRedux';
 
 function App() {
   return (
@@ -30,12 +33,15 @@ function App() {
           <HomeTemplate path="/login" component={Login} />
           <HomeTemplate path="/detail/:id" component={Detail} />
           <HomeTemplate path="/profile" component={Profile} />
+          {/* <ContextProvider> */}
           <HomeTemplate path="/demouseeffect" component={DemoUseEffect} />
           <HomeTemplate path="/demousecallback" component={DemoUseCallBack} />
           <HomeTemplate path="/demousememo" component={DemoUseMemo} />
           <HomeTemplate path="/demouseref" component={DemoUseRef} />
           <HomeTemplate path="/demousereducer" component={DemoUseReducer} />
-
+          <HomeTemplate path="/demousecontext" component={DemoUseContext} />
+          {/* </ContextProvider> */}
+          <HomeTemplate path="/demoredux" component={DemoUseRedux} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
           

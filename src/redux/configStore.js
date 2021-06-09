@@ -1,4 +1,5 @@
 import {combineReducers, createStore} from 'redux'
+import { FakeBookReducer } from './reducer/FakeBookReducer';
 
 
 
@@ -6,6 +7,7 @@ import {combineReducers, createStore} from 'redux'
 const rootReducer = combineReducers({
     //reducer khai  bao tai day
 
+    FakeBookReducer
 })
 
 
