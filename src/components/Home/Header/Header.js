@@ -41,6 +41,9 @@ export default function Header() {
                         </div>
                        
                     </li>
+                    <li className="nav-item">
+                        <NavLink activeClassName="todolist" activeStyle={{fontWeight:'bold'}} className="nav-link" to="/todolist">TodoList</NavLink>
+                    </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" />
