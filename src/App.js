@@ -20,6 +20,7 @@ import DemoUseContext from './DemoHookVideo/DemoUseContext';
 import ContextProvider from './DemoHookVideo/Context/ContextProvider';
 import DemoUseRedux from './DemoHookVideo/DemoUseRedux';
 import TodoList from './pages/TodoList/TodoList';
+import TodoListRcc from './pages/TodoList/TodoListRcc';
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
           <HomeTemplate path="/demousecontext" component={DemoUseContext} />
           {/* </ContextProvider> */}
           <HomeTemplate path="/demoredux" component={DemoUseRedux} />
-          <HomeTemplate path="/todolist" component={TodoList} />
+          <HomeTemplate path="/todolistrcc" component={TodoListRcc} />
+          <HomeTemplate path="/todolistrfc" component={TodoList} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
           
