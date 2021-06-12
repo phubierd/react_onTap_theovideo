@@ -46,6 +46,7 @@ export default function Header() {
                         <div className="dropdown-menu" aria-labelledby="dropdownId">
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistrcc">TodoList-rcc</NavLink>
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistrfc">TodoList-rfc</NavLink>
+                            <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistredux">TodoList-Redux</NavLink>
                         </div>
                     </li>
                    
