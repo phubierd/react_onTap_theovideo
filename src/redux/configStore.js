@@ -3,6 +3,13 @@ import { FakeBookReducer } from './reducer/FakeBookReducer';
 import TodoListReducer from './reducer/TodoListReducer';
 import reduxThunk from 'redux-thunk'
 import { TodoListReducerPrac } from './reducer/TodoListReducerPrac';
+//middleware saga====================================================
+import createMiddleWareSaga from 'redux-saga'
+import { rootSaga } from './sagas/rootSaga';
+
+const middleWareSaga = createMiddleWareSaga();
+
+//////////////////////////////////////////
 
 
 
@@ -14,10 +21,9 @@ const rootReducer = combineReducers({
     TodoListReducerPrac,
 })
 
+ const store = createStore(rootReducer,applyMiddleware(reduxThunk,middleWareSaga));
 
-
- const store = createStore(rootReducer,applyMiddleware(reduxThunk));
-
-
+ //goi saga
+ middleWareSaga.run(rootSaga)
 
  export default store;
