@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { TodoListAddTask, TodoListDellTask, TodoListGetApiPrac } from '../../redux/actions/TodoListActionPrac';
+import { TodoListAddTask, TodoListDellTask, TodoListDoneTask, TodoListGetApiPrac, TodoListUndoTask } from '../../redux/actions/TodoListActionPrac';
 
 export default function PractiseTodoList(props) {
     let { taskList } = useSelector(state => state.TodoListReducerPrac)
@@ -39,10 +39,10 @@ export default function PractiseTodoList(props) {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
-                    <button className="remove" type="button" onClick={delTaskTodo}>
+                    <button className="remove" type="button" onClick={()=>{delTaskTodo(item.taskName)}}>
                         <i className="fa fa-trash-alt" />
                     </button>
-                    <button className="complete">
+                    <button className="complete" onClick={()=>{doneTaskTodo(item.taskName)}} type='button'>
                         <i className="far fa-check-circle" />
                         <i className="fas fa-check-circle" />
                     </button>
@@ -56,10 +56,12 @@ export default function PractiseTodoList(props) {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
-                    <button className="remove" type="button" onClick={delTaskTodo}>
+                    <button className="remove" type="button" onClick={()=>{delTaskTodo(item.taskName)}}>
                         <i className="fa fa-trash-alt" />
                     </button>
-                    <button className="complete">
+                    <button className="complete" type='button' onClick={()=>{
+                        undoTaskTodo(item.taskName)
+                    }}>
                         <i className="far fa-undo" />
                         <i className="fas fa-undo" />
                     </button>
@@ -103,9 +105,17 @@ export default function PractiseTodoList(props) {
     }
 
 
-    const delTaskTodo =()=>{
-        dispatch(TodoListDellTask(state.values.taskName))
+    const delTaskTodo =(taskName)=>{
+        dispatch(TodoListDellTask(taskName))
     }
+
+    const doneTaskTodo = (taskName)=>{
+        dispatch(TodoListDoneTask(taskName))
+    }
+
+    const undoTaskTodo = (taskName) =>[
+        dispatch(TodoListUndoTask(taskName))
+    ]
 
     return (
         <div className="card">
