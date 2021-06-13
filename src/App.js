@@ -22,6 +22,7 @@ import DemoUseRedux from './DemoHookVideo/DemoUseRedux';
 import TodoList from './pages/TodoList/TodoList';
 import TodoListRcc from './pages/TodoList/TodoListRcc';
 import TodoListRedux from './pages/TodoList/TodoListRedux';
+import practiseTodoList from './pages/TodoList/PractiseTodoList';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <HomeTemplate path="/todolistrcc" component={TodoListRcc} />
           <HomeTemplate path="/todolistrfc" component={TodoList} />
           <HomeTemplate path="/todolistredux" component={TodoListRedux} />
+          <HomeTemplate path="/todolistpractise" component={practiseTodoList} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
           

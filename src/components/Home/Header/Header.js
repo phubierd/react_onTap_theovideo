@@ -47,6 +47,7 @@ export default function Header() {
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistrcc">TodoList-rcc</NavLink>
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistrfc">TodoList-rfc</NavLink>
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistredux">TodoList-Redux</NavLink>
+                            <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistpractise">TodoList-Practise</NavLink>
                         </div>
                     </li>
                    

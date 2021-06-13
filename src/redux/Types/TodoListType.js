@@ -1,1 +1,2 @@
 export const GET_TASK_API = 'GET_TASK_API'
+export const GET_TASK_API_PRAC = 'GET_TASK_API_PRAC'
