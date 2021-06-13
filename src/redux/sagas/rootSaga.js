@@ -17,7 +17,7 @@ function* getTaskApi() {
 
 export function* rootSaga() {
 
-    yield fork(getTaskApi);
+    yield fork(getTaskApi); //non-blocking chạy ko cần chờ (bất đồng bộ)
 
 
 
