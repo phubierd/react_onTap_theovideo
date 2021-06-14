@@ -1,25 +1,20 @@
-
-//redux co 2 loai:
-// - action => object
-// - action => function() (thường dùng để xử lý API hoặc gọi các action khác)
-
-import { fork, take } from "@redux-saga/core/effects"
+import { all, call } from "@redux-saga/core/effects";
+import * as TodoListSagaAction from './TodoListSagaAction'
 
 
-function* getTaskApi() {
-
-    while (true) {
-        yield take('getTaskApi') //theo dõi action => xem action nào dispatch mới làm các công việc bên dưới
-        console.log('getTaskApi')
-        //call api dispatch len reducer...
-    }
-}
 
 export function* rootSaga() {
 
-    yield fork(getTaskApi); //non-blocking chạy ko cần chờ (bất đồng bộ)
+    yield all ([
+        //nghiệp vụ theo dõi các aciton saga todolist
+        TodoListSagaAction.theoDoiActionGetTaskApi()
 
 
 
+
+
+        //nghiệp vụ saga khác...
+
+    ])
 
 }

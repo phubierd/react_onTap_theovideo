@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './TodoList.css'
 
 export default function TodoListSaga(props) {
 
     const dispatch = useDispatch()
+    const {taskList} = useSelector(state=>state.TodoListReducerPrac)
 
     let [state, setState] = useState({
         taskList: [],
@@ -18,15 +19,21 @@ export default function TodoListSaga(props) {
     })
 
     const getTaskList = () => {
-
+        // dispatch action saga
+        dispatch({
+            type: 'getTaskApiAction',
+            data:'abc'
+        })
     }
 
     useEffect(() => {
+        //goi ham getTaskList
+        getTaskList()
 
     }, [])
 
     const renderToDoList = () => {
-        return state.taskList.filter(item => !item.status).map((item, index) => {
+        return taskList.filter(item => !item.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
@@ -43,7 +50,7 @@ export default function TodoListSaga(props) {
     }
 
     const renderToDoListDone = () => {
-        return state.taskList.filter(item => item.status).map((item, index) => {
+        return taskList.filter(item => item.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons" type='button'>
@@ -115,9 +122,9 @@ export default function TodoListSaga(props) {
 
     return (
         <div className="card">
-            <button className='btn btn-success' onClick={() => {
+            <button type='button' className='btn btn-success' onClick={() => {
                 dispatch({
-                    type:'getTaskApi',
+                    type:'getTaskApiAction',
                 })
             }}> dispatch action saga getTaskApi</button>
             <div className="card__header">

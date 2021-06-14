@@ -22,14 +22,16 @@ import DemoUseRedux from './DemoHookVideo/DemoUseRedux';
 import TodoList from './pages/TodoList/TodoList';
 import TodoListRcc from './pages/TodoList/TodoListRcc';
 import TodoListRedux from './pages/TodoList/TodoListRedux';
-import practiseTodoList from './pages/TodoList/PractiseTodoList';
 import TodoListSaga from './pages/TodoList/TodoListSaga';
+import PractiseTodoList from './pages/TodoList/PractiseTodoList';
+import LoadingComponent from './components/GlobalSetting/LoaddingComponent/LoadingComponent';
 
 function App() {
   return (
     <div className="App">
       {/* <DemoJSS/> */}
       <BrowserRouter>
+        <LoadingComponent/>
         {/* <Header/> */}
         <Switch>
           <HomeTemplate path="/home" component={Home} />
@@ -50,7 +52,7 @@ function App() {
           <HomeTemplate path="/todolistrcc" component={TodoListRcc} />
           <HomeTemplate path="/todolistrfc" component={TodoList} />
           <HomeTemplate path="/todolistredux" component={TodoListRedux} />
-          <HomeTemplate path="/todolistpractise" component={practiseTodoList} />
+          <HomeTemplate path="/todolistpractise" component={PractiseTodoList} />
           <HomeTemplate path="/todolistsaga" component={TodoListSaga} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
