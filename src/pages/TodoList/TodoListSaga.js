@@ -1,15 +1,18 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { ADD_TASK_API, GET_TASKLIST_API } from '../../redux/Types/TodoListType'
 import './TodoList.css'
 
 export default function TodoListSaga(props) {
 
     const dispatch = useDispatch()
-    const {taskList} = useSelector(state=>state.TodoListReducerPrac)
+    const { taskList } = useSelector(state => state.TodoListReducerSaga)
+
+    console.log('taskList',taskList)
 
     let [state, setState] = useState({
-        taskList: [],
+        // taskList: [],
         values: {
             taskName: '',
         },
@@ -21,8 +24,8 @@ export default function TodoListSaga(props) {
     const getTaskList = () => {
         // dispatch action saga
         dispatch({
-            type: 'getTaskApiAction',
-            data:'abc'
+            type: GET_TASKLIST_API,
+
         })
     }
 
@@ -33,7 +36,7 @@ export default function TodoListSaga(props) {
     }, [])
 
     const renderToDoList = () => {
-        return taskList.filter(item => !item.status).map((item, index) => {
+        return taskList?.filter(item => !item.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons">
@@ -50,7 +53,7 @@ export default function TodoListSaga(props) {
     }
 
     const renderToDoListDone = () => {
-        return taskList.filter(item => item.status).map((item, index) => {
+        return taskList?.filter(item => item.status).map((item, index) => {
             return <li key={index}>
                 <span>{item.taskName}</span>
                 <div className="buttons" type='button'>
@@ -99,7 +102,11 @@ export default function TodoListSaga(props) {
 
 
     const handleSubmit = (e) => {
-
+        e.preventDefault();
+        dispatch({
+            type: ADD_TASK_API,
+            taskName: state.values.taskName
+        })
 
     }
 
@@ -124,7 +131,7 @@ export default function TodoListSaga(props) {
         <div className="card">
             <button type='button' className='btn btn-success' onClick={() => {
                 dispatch({
-                    type:'getTaskApiAction',
+                    type: 'getTaskApiAction',
                 })
             }}> dispatch action saga getTaskApi</button>
             <div className="card__header">
