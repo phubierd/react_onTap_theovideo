@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { ADD_TASK_API, GET_TASKLIST_API } from '../../redux/Types/TodoListType'
+import { ADD_TASK_API, CHECK_TASK_API, DELETE_TASK_API, GET_TASKLIST_API, REJECT_TASK_API } from '../../redux/Types/TodoListType'
 import './TodoList.css'
 
 export default function TodoListSaga(props) {
@@ -9,7 +9,7 @@ export default function TodoListSaga(props) {
     const dispatch = useDispatch()
     const { taskList } = useSelector(state => state.TodoListReducerSaga)
 
-    console.log('taskList',taskList)
+    console.log('taskList', taskList)
 
     let [state, setState] = useState({
         // taskList: [],
@@ -25,7 +25,6 @@ export default function TodoListSaga(props) {
         // dispatch action saga
         dispatch({
             type: GET_TASKLIST_API,
-
         })
     }
 
@@ -111,15 +110,25 @@ export default function TodoListSaga(props) {
     }
 
     const delTaskName = (taskName) => {
-
+        console.log(taskName)
+        dispatch({
+            type: DELETE_TASK_API,
+            taskName: taskName
+        })
     }
 
     const taskDone = (taskName) => {
-
+        dispatch({
+            type: CHECK_TASK_API,
+            taskName
+        })
     }
 
     const undoTask = (taskName) => {
-
+        dispatch({
+            type: REJECT_TASK_API,
+            taskName
+        })
     }
 
 

@@ -7,7 +7,7 @@ import axios from "axios"
 import { toDoListService } from "../../services/ToDoListService"
 import { STATUS_CODE } from "../../util/constant/settingSystem"
 import { DISPLAY_LOADING, HIDE_LOADING } from "../Types/LoadingType"
-import { ADD_TASK_API, GET_TASKLIST_API, GET_TASK_API_PRAC } from "../Types/TodoListType"
+import { ADD_TASK_API, CHECK_TASK_API, DELETE_TASK_API, GET_TASKLIST_API, GET_TASK_API_PRAC, REJECT_TASK_API } from "../Types/TodoListType"
 
 
 
@@ -90,4 +90,84 @@ function* addTaskApiAction(action) {
 
 export function* theoDoiActionAddTaskApi() {
     yield takeLatest(ADD_TASK_API, addTaskApiAction)
+}
+
+
+
+/*
+    14/6/2021 viết chức năng getTask
+    action saga del task từ api
+
+*/
+function * deleteTaskApi (action){
+    // console.log(action)
+    const {taskName} = action;
+    try{
+        //goi api
+        const {data,status} = yield call(()=>{
+            return toDoListService.delTaskApi(taskName)
+        })
+
+        if(status === STATUS_CODE.SUCCESS){
+            //nếu thành công thì gọi lại action GET TASK LIST API (action saga thuc thi)
+            yield put ({
+                type:GET_TASKLIST_API
+            })
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+export function* theoDoiDelTaskApi(){
+    yield takeLatest(DELETE_TASK_API,deleteTaskApi)
+}
+
+
+/////////////////////
+function * checkTaskApi (action){
+    // console.log(action)
+    const {taskName} = action;
+    try{
+        //goi api
+        const {data,status} = yield call(()=>{
+            return toDoListService.checkTaskApi(taskName)
+        })
+
+        if(status === STATUS_CODE.SUCCESS){
+            //nếu thành công thì gọi lại action GET TASK LIST API (action saga thuc thi)
+            yield put ({
+                type:GET_TASKLIST_API
+            })
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+export function* theoDoiCheckTaskApi(){
+    yield takeLatest(CHECK_TASK_API,checkTaskApi)
+}
+
+////////
+
+function * undoTaskApi (action){
+    // console.log(action)
+    const {taskName} = action;
+    try{
+        //goi api
+        const {data,status} = yield call(()=>{
+            return toDoListService.undoTaskApi(taskName)
+        })
+
+        if(status === STATUS_CODE.SUCCESS){
+            //nếu thành công thì gọi lại action GET TASK LIST API (action saga thuc thi)
+            yield put ({
+                type:GET_TASKLIST_API
+            })
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+export function* theoDoiUndoTaskApi(){
+    yield takeLatest(REJECT_TASK_API,undoTaskApi)
 }

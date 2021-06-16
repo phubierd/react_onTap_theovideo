@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux'
+import { applyMiddleware, combineReducers, createStore, compose } from 'redux'
 import { FakeBookReducer } from './reducer/FakeBookReducer';
 import TodoListReducer from './reducer/TodoListReducer';
 import reduxThunk from 'redux-thunk'
@@ -24,10 +24,14 @@ const rootReducer = combineReducers({
     TodoListReducerSaga,
     LoadingReducer,
 })
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(rootReducer, applyMiddleware(reduxThunk, middleWareSaga));
 
- const store = createStore(rootReducer,applyMiddleware(reduxThunk,middleWareSaga));
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(reduxThunk, middleWareSaga)
+    // applyMiddleware(...middleware)
+));
+//goi saga
+middleWareSaga.run(rootSaga)
 
- //goi saga
- middleWareSaga.run(rootSaga)
-
- export default store;
+export default store;

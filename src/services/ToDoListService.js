@@ -20,6 +20,29 @@ export class ToDoListService {
             data: { taskName: taskName }
         })
     }
+    
+    delTaskApi = (taskName) => {
+        return axios({
+            url: `${domain}/ToDoList/deleteTask?taskName=${taskName}`,
+            method: 'delete',
+        })
+    }
+
+    checkTaskApi = (taskName) => {
+        return axios({
+            url: `${domain}/ToDoList/doneTask?taskName=${taskName}`,
+            method: 'put',
+            data: { taskName: taskName }
+        })
+    }
+
+    checkTaskApi = (taskName) => {
+        return axios({
+            url: `${domain}/ToDoList/rejectTask?taskName=${taskName}`,
+            method: 'put',
+            data: { taskName: taskName }
+        })
+    }
 }
 
 
