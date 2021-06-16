@@ -49,14 +49,15 @@ export default function Header() {
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistredux">TodoList-Redux</NavLink>
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistpractise">TodoList-Practise</NavLink>
                             <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistsaga">TodoList-Saga</NavLink>
+                            <NavLink activeClassName="todolist" activeStyle={{ fontWeight: 'bold' }} className="dropdown-item" to="/todolistbt">TodoList-BT</NavLink>
                         </div>
                     </li>
                    
                 </ul>
-                <form className="form-inline my-2 my-lg-0">
+                {/* <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                </form> */}
             </div>
         </nav>
 
