@@ -25,6 +25,7 @@ import TodoListRedux from './pages/TodoList/TodoListRedux';
 import TodoListSaga from './pages/TodoList/TodoListSaga';
 import PractiseTodoList from './pages/TodoList/PractiseTodoList';
 import LoadingComponent from './components/GlobalSetting/LoaddingComponent/LoadingComponent';
+import TodoListBT from './pages/TodoList/TodoListBT';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <HomeTemplate path="/todolistredux" component={TodoListRedux} />
           <HomeTemplate path="/todolistpractise" component={PractiseTodoList} />
           <HomeTemplate path="/todolistsaga" component={TodoListSaga} />
+          <HomeTemplate path="/todolistbt" component={TodoListBT} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
           
