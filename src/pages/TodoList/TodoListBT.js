@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, useFormik } from 'formik'
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,8 +10,6 @@ export default function TodoListBT() {
     const { taskList } = useSelector(state => state.TodoListReducerBT)
     // console.log('taskList', taskList)
     const dispatch = useDispatch();
-
-  
 
     useEffect(() => {
         GetApiTodoList()
@@ -33,64 +31,69 @@ export default function TodoListBT() {
                 .matches(/^[A-Z a-z]+$/, 'Không bao gồm số & chữ tiếng Việt!!'),
         }),
         onSubmit: values => {
-            console.log('values add submit',values)
+            console.log('values add submit', values)
+
             dispatch(AddApiActionBT(values))
+
         }
-        
+
     })
-    // console.log(formik.values)
+
+    
+
+    // console.log("formik.values",formik.values)
     const { handleChange, handleBlur, touched, errors } = formik
 
     const GetApiTodoList = () => {
         dispatch(GetApiActionBT())
     }
-    
-    const DelApiTodoList = (taskName)=>{
-        console.log('taskName del',taskName)
+
+    const DelApiTodoList = (taskName) => {
+        console.log('taskName del', taskName)
         dispatch(DelApiActionBT(taskName))
     }
 
-    const CheckApiTodoList = (taskName)=>{
-        console.log('taskName check',taskName)
+    const CheckApiTodoList = (taskName) => {
+        console.log('taskName check', taskName)
         dispatch(CheckApiActionBT(taskName))
     }
 
-    const RejectApiTodoList = (taskName)=>{
-        console.log('taskName reject',taskName)
+    const RejectApiTodoList = (taskName) => {
+        console.log('taskName reject', taskName)
         dispatch(RejectApiActionBT(taskName))
     }
 
     const renderTodoList = () => {
-        return taskList.filter(item=>!item.status).map((item,index)=>{
+        return taskList.filter(item => !item.status).map((item, index) => {
             return <li key={index}>
-            <span>{item.taskName}</span>
-            <div className="buttons">
-                <button className="remove" type="button" onClick={()=>{DelApiTodoList(formik.values)}}>
-                    <i className="fa fa-trash-alt" />
-                </button>
-                <button className="complete" type="button" onClick={()=>{CheckApiTodoList(formik.values)}}>
-                    <i className="far fa-check-circle" />
-                    <i className="fas fa-check-circle" />
-                </button>
-            </div>
-        </li>
+                <span>{item.taskName}</span>
+                <div className="buttons">
+                    <button className="remove" type="button" onClick={() => { DelApiTodoList(item.taskName) }}>
+                        <i className="fa fa-trash-alt" />
+                    </button>
+                    <button className="complete" type="button" onClick={() => { CheckApiTodoList(item.taskName) }}>
+                        <i className="far fa-check-circle" />
+                        <i className="fas fa-check-circle" />
+                    </button>
+                </div>
+            </li>
         })
     }
 
-    const renderTodoListDone = ()=>{
-        return taskList.filter(item=>item.status).map((item,index)=>{
+    const renderTodoListDone = () => {
+        return taskList.filter(item => item.status).map((item, index) => {
             return <li key={index}>
-            <span>{item.taskName}</span>
-            <div className="buttons">
-                <button className="remove" type="button"  onClick={()=>{DelApiTodoList(formik.values)}}>
-                    <i className="fa fa-trash-alt" />
-                </button>
-                <button className="complete" type="button" onClick={()=>{RejectApiTodoList(formik.values)}}>
-                    <i className="far fa-undo" />
-                    <i className="fas fa-undo" />
-                </button>
-            </div>
-        </li>
+                <span>{item.taskName}</span>
+                <div className="buttons">
+                    <button className="remove" type="button" onClick={() => { DelApiTodoList(item.taskName) }}>
+                        <i className="fa fa-trash-alt" />
+                    </button>
+                    <button className="complete" type="button" onClick={() => { RejectApiTodoList(item.taskName) }}>
+                        <i className="far fa-undo" />
+                        <i className="fas fa-undo" />
+                    </button>
+                </div>
+            </li>
         })
     }
 

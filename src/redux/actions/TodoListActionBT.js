@@ -25,14 +25,15 @@ export const GetApiActionBT = () => {
 
 
 export const AddApiActionBT = (taskName) => {
+    // console.log(taskName,'???')
     return async dispatch => {
         try {
-            const { data } = await axios({
+            const result = await axios({
                 url: 'http://svcy.myclass.vn/api/ToDoList/AddTask',
                 method: 'post',
-                data: { taskName }
+                data: taskName 
             })
-            console.log(data, taskName)
+            console.log('action ADD',result, taskName)
             dispatch(GetApiActionBT())
         } catch (err) {
             console.log(err.response?.data)
@@ -47,8 +48,7 @@ export const DelApiActionBT = (taskName)=>{
                 url:`http://svcy.myclass.vn/api/ToDoList/deleteTask?taskName=${taskName}`,
                 method:'delete'
             })
-            console.log('del action',taskName)
-            console.log(taskName,'del action')
+            dispatch(GetApiActionBT())
         }catch(err){
             console.log(err.response?.data)
         }
@@ -64,8 +64,7 @@ export const CheckApiActionBT= (taskName)=>{
                 method:'put',
                 data:{taskName}
             })
-            console.log('del action',taskName)
-            console.log(taskName,'del action')
+            dispatch(GetApiActionBT())
         }catch(err){
             console.log(err.response?.data)
         }
@@ -81,8 +80,7 @@ export const RejectApiActionBT = (taskName)=>{
                 method:'put',
                 data:{taskName}
             })
-            console.log('del action',taskName)
-            console.log(taskName,'del action')
+            dispatch(GetApiActionBT())
         }catch(err){
             console.log(err.response?.data)
         }
