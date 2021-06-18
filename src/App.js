@@ -26,6 +26,7 @@ import TodoListSaga from './pages/TodoList/TodoListSaga';
 import PractiseTodoList from './pages/TodoList/PractiseTodoList';
 import LoadingComponent from './components/GlobalSetting/LoaddingComponent/LoadingComponent';
 import TodoListBT from './pages/TodoList/TodoListBT';
+import BTGameBauCua from './pages/BTGameBauCua/BTGameBauCua';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <HomeTemplate path="/todolistpractise" component={PractiseTodoList} />
           <HomeTemplate path="/todolistsaga" component={TodoListSaga} />
           <HomeTemplate path="/todolistbt" component={TodoListBT} />
+          <HomeTemplate path="/gamebaucua" component={BTGameBauCua} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}
           
