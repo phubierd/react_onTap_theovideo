@@ -37,7 +37,7 @@ body { font-family: sans-serif; }
   }
 .cube.show-top    {
    transform: translateZ(-100px)
-    rotateX( -90deg); xx
+    rotateX( -90deg); 
   }
 .cube.show-bottom {
    transform: translateZ(-100px)

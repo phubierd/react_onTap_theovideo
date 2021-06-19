@@ -1,26 +1,24 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import QuanCuoc from './QuanCuoc'
 export default function DanhSachCuoc() {
+
+
+    const { danhSachCuoc } = useSelector(state => state.BTGameBauCuaReducer)
+    // console.log(danhSachCuoc)
+
+
+    const renderDanhSachCuoc = () => {
+        return danhSachCuoc.map((item, index) => {
+            return <div className="col-4" key={index}>
+                <QuanCuoc quanCuoc={item}/>
+            </div>
+        })
+    }
+
     return (
         <div className="row mt-5">
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
-            <div className="col-4">
-                <QuanCuoc/>
-            </div>
+           {renderDanhSachCuoc()}
         </div>
     )
 }

@@ -9,7 +9,7 @@ import createMiddleWareSaga from 'redux-saga'
 import { rootSaga } from './sagas/rootSaga';
 import TodoListReducerSaga from './reducer/TodoListReducerSaga';
 import TodoListReducerBT from './reducer/TodoListReducerBT';
-
+import BTGameBauCuaReducer from './reducer/BTGameBauCuaReducer'
 const middleWareSaga = createMiddleWareSaga();
 
 //////////////////////////////////////////
@@ -25,6 +25,7 @@ const rootReducer = combineReducers({
     TodoListReducerSaga,
     LoadingReducer,
     TodoListReducerBT,
+    BTGameBauCuaReducer,
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // const store = createStore(rootReducer, applyMiddleware(reduxThunk, middleWareSaga));
