@@ -1,0 +1,38 @@
+.input__redux2{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(168, 173, 182);
+    place-items: center;
+}
+
+.input__content{
+    height: 50px;
+    width: 80%;
+    border-radius: 12px;
+    background-color: white;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    place-items: center;
+}
+.input__content input{
+    background: none;
+    border: none;
+    margin-left: 12px;
+    flex: 1;
+}
+
+.input__content input:focus{
+    outline: none;
+
+}
+
+button{
+    margin-right: 8px;
+    background-color: rgb(214, 213, 213);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 50px;
+}
+

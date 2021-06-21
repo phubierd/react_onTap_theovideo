@@ -28,7 +28,6 @@ import LoadingComponent from './components/GlobalSetting/LoaddingComponent/Loadi
 import TodoListBT from './pages/TodoList/TodoListBT';
 import BTGameBauCua from './pages/BTGameBauCua/BTGameBauCua';
 import TodoListFirebase from './pages/TodoList/TodoListFirebase';
-import TodoListRedux2 from './pages/TodoList/TodoListRedux2';
 
 function App() {
   return (
@@ -60,7 +59,6 @@ function App() {
           <HomeTemplate path="/todolistsaga" component={TodoListSaga} />
           <HomeTemplate path="/todolistbt" component={TodoListBT} />
           <HomeTemplate path="/todolistfirebase" component={TodoListFirebase} />
-          <HomeTemplate path="/todolistredux2" component={TodoListRedux2} />
           <HomeTemplate path="/gamebaucua" component={BTGameBauCua} />
           {/* <Route exact path='/detail/:id' component={Detail} />
           <Route exact path='/profile' component={Profile} /> */}

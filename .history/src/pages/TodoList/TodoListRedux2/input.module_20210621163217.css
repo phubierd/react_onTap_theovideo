@@ -1,0 +1,20 @@
+.input__redux2{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(168, 173, 182);
+    place-items: center;
+}
+
+.input__content{
+    height: 50px;
+    width: 80%;
+    border-radius: 12px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input__content input{
+    background: none;
+    border: none;
+}
